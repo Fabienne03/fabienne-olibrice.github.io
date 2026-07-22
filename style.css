@@ -1,0 +1,675 @@
+/* ========================================
+   FABIENNE OLIBRICE — EDITORIAL PORTFOLIO
+   Shared stylesheet (all pages)
+======================================== */
+
+:root {
+  --paper: #EAE8D8;
+  --paper-light: #F4F1E4;
+  --black: #151515;
+  --yellow: #F3FF00;
+  --pink: #FF3B81;
+  --blue: #3155FF;
+  --white: #FFFDF5;
+  --line: rgba(21, 21, 21, 0.18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--black);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(234, 232, 216, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo,
+.nav-links a {
+  color: var(--black);
+}
+
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.05em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--pink);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--pink);
+}
+
+/* ========================================
+   PAGE COVER (masthead banner for interior pages)
+======================================== */
+
+.page-cover {
+  min-height: 62vh;
+  padding: 150px 4vw 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.issue-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+  margin-bottom: auto;
+}
+
+.page-cover-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(4rem, 13vw, 13rem);
+  font-weight: 700;
+  line-height: 0.78;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  margin-top: 6vh;
+}
+
+.page-cover-title .pink { color: var(--pink); }
+.page-cover-title .outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--black);
+}
+
+.page-cover-tag {
+  display: inline-block;
+  background: var(--yellow);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  margin-bottom: 24px;
+  transform: rotate(-2deg);
+  align-self: flex-start;
+}
+
+/* ========================================
+   HERO (index.html only)
+======================================== */
+
+.hero {
+  min-height: 100vh;
+  padding: 110px 4vw 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(6rem, 17vw, 18rem);
+  font-weight: 700;
+  line-height: 0.72;
+  letter-spacing: -0.09em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  margin-top: 5vh;
+}
+
+.hero-title span { display: block; }
+.hero-title .pink { color: var(--pink); }
+
+/* Name + cutout live in one row so the photo can only ever overlap the
+   name itself, never anything below it (the message sits after this
+   row in normal document flow). */
+.hero-name-row {
+  position: relative;
+}
+
+.hero-image {
+  position: absolute;
+  width: clamp(200px, 26vw, 430px);
+  right: 2vw;
+  bottom: -4%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(14px 14px 0 var(--black));
+}
+
+.hero-message {
+  position: relative;
+  z-index: 5;
+  max-width: 460px;
+  margin-top: 50px;
+}
+
+.hero-message h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.5;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  background: var(--yellow);
+  padding: 2px 18px;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.sticker {
+  position: absolute;
+  right: 4vw;
+  bottom: 8vh;
+  width: 130px;
+  height: 130px;
+  background: var(--blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transform: rotate(12deg);
+  z-index: 10;
+  border: 4px solid var(--black);
+}
+
+/* index-only: quick links to other pages, styled as a cover's table of contents */
+
+.cover-index {
+  border-top: 2px solid var(--black);
+  margin-top: 60px;
+}
+
+.cover-index a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 4px;
+  border-bottom: 1px solid var(--line);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+  transition: padding-left 0.25s ease, color 0.25s ease;
+}
+
+.cover-index a:hover {
+  padding-left: 16px;
+  color: var(--pink);
+}
+
+.cover-index a span:last-child {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pink);
+  letter-spacing: 0;
+}
+
+/* ========================================
+   MARQUEE
+======================================== */
+
+.marquee {
+  overflow: hidden;
+  background: var(--black);
+  color: var(--yellow);
+  padding: 15px 0;
+  border-top: 3px solid var(--black);
+  border-bottom: 3px solid var(--black);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.marquee span {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 50px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ========================================
+   SECTION / TYPOGRAPHY BASICS
+======================================== */
+
+section {
+  padding: 120px 5vw;
+}
+
+.section-number {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--pink);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.85;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: start;
+}
+
+.about-portrait {
+  position: relative;
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+  border: 3px solid var(--black);
+  transform: rotate(-2deg);
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.about-text {
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  line-height: 1.25;
+  max-width: 650px;
+}
+
+.about-text strong {
+  background: var(--yellow);
+  padding: 0 5px;
+}
+
+.facts {
+  border-top: 2px solid var(--black);
+  margin-top: 60px;
+}
+
+.fact {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.fact span:first-child { color: var(--pink); }
+
+/* ========================================
+   PROJECTS
+======================================== */
+
+.projects {
+  background: var(--black);
+  color: var(--white);
+}
+
+.projects .page-cover,
+.projects .section-number {
+  color: var(--yellow);
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+  align-items: center;
+  margin-bottom: 160px;
+}
+
+.project:last-child { margin-bottom: 0; }
+
+.project:nth-child(even) { direction: rtl; }
+.project:nth-child(even) > * { direction: ltr; }
+
+.project-image { position: relative; }
+
+.project-image img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  border: 3px solid var(--white);
+  transform: rotate(-2deg);
+  transition: transform 0.4s ease;
+}
+
+.project-image:hover img {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.project-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 2px solid var(--white);
+  transform: none;
+}
+
+.project-info h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.project-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #D5D5D5;
+  margin-bottom: 30px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  border: 1px solid var(--white);
+  padding: 7px 12px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.award {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  transform: rotate(-2deg);
+}
+
+/* ========================================
+   INTERESTS
+======================================== */
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.interest {
+  min-height: 320px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 3px solid var(--black);
+  transition: transform 0.3s ease;
+}
+
+.interest:hover { transform: translateY(-10px) rotate(-2deg); }
+
+.interest:nth-child(1) { background: var(--pink); }
+.interest:nth-child(2) { background: var(--yellow); }
+.interest:nth-child(3) { background: var(--blue); color: white; }
+.interest:nth-child(4) { background: var(--white); }
+
+.interest h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
+}
+
+.interest p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* ========================================
+   LEADERSHIP
+======================================== */
+
+.leadership { background: var(--pink); }
+
+.leadership .page-cover-tag,
+.leadership .section-number { color: var(--black); }
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5vw;
+  align-items: center;
+}
+
+.leadership-image img {
+  width: 100%;
+  border: 4px solid var(--black);
+  transform: rotate(2deg);
+}
+
+.leadership-text h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.85;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.leadership-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.contact {
+  background: var(--yellow);
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(4rem, 12vw, 13rem);
+  line-height: 0.75;
+  letter-spacing: -0.09em;
+  text-transform: uppercase;
+  margin-bottom: 70px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.contact-button {
+  border: 3px solid var(--black);
+  padding: 15px 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background: var(--black);
+  color: var(--yellow);
+  transform: translateY(-5px);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 30px 5vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+
+  .hero-title { font-size: 20vw; }
+  .hero-image { width: 55vw; right: 5vw; top: 25vh; }
+  .hero-image img { height: 500px; }
+  .hero-message { bottom: 10vh; max-width: 350px; }
+
+  .page-cover { padding: 120px 5vw 40px; min-height: 46vh; }
+
+  .about-grid,
+  .project,
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-portrait img { height: 420px; }
+
+  .project:nth-child(even) { direction: ltr; }
+
+  .interests-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  section { padding: 80px 6vw; }
+
+  .hero { padding-left: 6vw; padding-right: 6vw; }
+  .hero-title { font-size: 23vw; }
+  .hero-image { width: 70vw; right: 5vw; top: 24vh; }
+  .hero-message { left: 6vw; bottom: 9vh; max-width: 80%; }
+  .hero-message h2 { font-size: 1.8rem; }
+
+  .sticker { width: 90px; height: 90px; font-size: 0.6rem; right: 5vw; bottom: 5vh; }
+
+  .cover-index a { font-size: 1.3rem; padding: 18px 4px; }
+
+  .project { margin-bottom: 100px; }
+  .project-image img { height: 320px; }
+  .project-gallery img { height: 130px; }
+
+  .interests-grid { grid-template-columns: 1fr; }
+
+  footer { flex-direction: column; gap: 10px; }
+}
