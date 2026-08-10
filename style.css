@@ -6,6 +6,7 @@
 :root {
   --paper: #EAE8D8;
   --paper-light: #F4F1E4;
+  --teal: #00FFE1;
   --black: #151515;
   --yellow: #F3FF00;
   --pink: #FF3B81;
@@ -400,6 +401,8 @@ section {
    PROJECTS
 ======================================== */
 
+
+.projects .page-cover-tag { color: var(--black); }
 .projects {
   background: var(--black);
   color: var(--white);
@@ -534,11 +537,34 @@ section {
   line-height: 1.4;
 }
 
+.interest-images {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.interest-images .project-image {
+  flex: 1;
+  min-width: 200px;
+  max-width: 260px;
+  aspect-ratio: 4/5; /* portrait ratio — adjust to 2/3 for taller, 4/5 for less tall */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.interest-images .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ========================================
    LEADERSHIP
 ======================================== */
 
-.leadership { background: var(--pink); }
+.leadership { background: var(--teal); }
 
 .leadership .page-cover-tag,
 .leadership .section-number { color: var(--black); }
